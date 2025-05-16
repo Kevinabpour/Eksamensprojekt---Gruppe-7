@@ -54,6 +54,8 @@
             _picture = "test";
             _avaliability = true;
             _id = _tempID++;
+            Defect = new List<string>(); // by Ahmed
+
         }
         public Animal(string name, string chipnumber, string text, string picture) : this()
         {
