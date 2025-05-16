@@ -1,5 +1,6 @@
 ﻿@page
 @model Eksamensprojekt___Gruppe_7.Pages.Employees.IndexModel
+@using Eksamensprojekt___Gruppe_7.Models
 @* by Ahmed*@
 @{
 	ViewData["Title"] = "Employees";
@@ -8,7 +9,7 @@
 <hr>
 <div class="row row-cols-3">
 
-	@foreach (var employee in Model.Employees)
+	@foreach (Employee employee in Model.Employees)
 	{
 		<div class="col">
 			<div class="card" style="width: 18rem;">
