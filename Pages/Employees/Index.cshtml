@@ -1,0 +1,28 @@
+﻿@page
+@model Eksamensprojekt___Gruppe_7.Pages.Employees.IndexModel
+@* by Ahmed*@
+@{
+	ViewData["Title"] = "Employees";
+}
+<h4> Her kan du se vores dygtige medarbejdere	</h4>
+<hr>
+<div class="row row-cols-3">
+
+	@foreach (var employee in Model.Employees)
+	{
+		<div class="col">
+			<div class="card" style="width: 18rem;">
+				<img src="~/Media/@employee.Picture" class="card-img-top" alt="@employee.Name">
+				<div class="card-body">
+					<h5 class="card-title">@employee.Name</h5>
+					<p class="card-text">
+						Stilling: @employee.JobTitle <br/>
+						Email: @employee.Email <br />
+						Telefon: @employee.PhoneNumber <br />
+					</p>
+				</div>
+			</div>
+		</div>
+	}
+
+</div>
