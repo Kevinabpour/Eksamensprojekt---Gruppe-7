@@ -3,16 +3,14 @@ using Eksamensprojekt___Gruppe_7.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 1) Register your IAnimalRepo and AnimalService here:
 builder.Services.AddSingleton<IAnimalRepo, AnimalRepo>();
 builder.Services.AddSingleton<AnimalService>();
-
-// 2) Now add the Razor-Pages framework:
+builder.Services.AddSingleton<IEventRepo, EventRepo>();
+builder.Services.AddSingleton<EventService>();
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
-// 3) Configure the HTTP pipeline:
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
