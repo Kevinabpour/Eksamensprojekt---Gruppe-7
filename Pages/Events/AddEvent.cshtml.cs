@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 
-namespace Eksamensprojekt___Gruppe_7.Pages
+namespace Eksamensprojekt___Gruppe_7.Pages.Events
 {
-    
+
     public class EventsModel : PageModel
     {
 
