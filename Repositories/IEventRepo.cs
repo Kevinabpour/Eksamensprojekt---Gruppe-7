@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Eksamensprojekt___Gruppe_7.Models;
+//By Kevin
 namespace Eksamensprojekt___Gruppe_7.Repositories
 {
     public interface IEventRepo

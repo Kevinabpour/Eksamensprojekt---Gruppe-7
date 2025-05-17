@@ -1,7 +1,7 @@
 ﻿using Eksamensprojekt___Gruppe_7.Models;
 using Eksamensprojekt___Gruppe_7.Repositories;
 using Microsoft.Extensions.Logging;
-
+// By Kevin
 namespace Eksamensprojekt___Gruppe_7.Service
 {
     public class EventService
