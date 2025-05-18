@@ -30,7 +30,7 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
             //if not found, redirect to the employee overview page
             if (employeeId == -1)
             {
-                return RedirectToPage("/Employee/Index");
+                return RedirectToPage("/Employees/Index");
             }
             //show the confirmation page
             return Page(); 
@@ -41,7 +41,7 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
             if (Employee == null || string.IsNullOrWhiteSpace(Employee.Name) )
             {
                 //if the employee is not found, redirect to the employee overview page
-                return RedirectToPage("/Employee/Index");
+                return RedirectToPage("/Employees/Index");
             }
             // loop to find and remove the employee from the list
             for (int i = 0; i < IndexModel.TempEmployees.Count; i++)

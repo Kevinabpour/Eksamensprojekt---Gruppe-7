@@ -35,7 +35,7 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
             //if not found, redirect to the employee overview page
             if (employeeId == -1)
             {
-                return RedirectToPage("/Employee/Index");
+                return RedirectToPage("/Employees/Index");
             }
             //show the edit page with the employee data, if found
             return Page();
