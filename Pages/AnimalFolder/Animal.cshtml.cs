@@ -5,7 +5,7 @@ using Eksamensprojekt___Gruppe_7.Service;
 using Eksamensprojekt___Gruppe_7.Repositories;
 
 
-namespace Eksamensprojekt___Gruppe_7.Pages
+namespace Eksamensprojekt___Gruppe_7.Pages.AnimalFolder
 {
     public class AnimalModel : PageModel
     {

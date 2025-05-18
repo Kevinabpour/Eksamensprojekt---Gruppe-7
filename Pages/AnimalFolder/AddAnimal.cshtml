@@ -1,0 +1,34 @@
+﻿@page
+@model Eksamensprojekt___Gruppe_7.Pages.AnimalFolder.AddAnimalModel
+@{
+}
+<container-sm>
+    <div class="text-center">
+        <h1>Tilføj dyr</h1>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body text-center">
+            <form method="post">
+                <div class="form-group container-fluid">
+                    <label for="inputDateTime">Fornavn: </label>
+                    <input type="text" asp-for="animal.Name"  aria-describedby="dateTimeHelp" placeholder="Enter name" step="3600">
+                    <label for="inputDateTime">Chipnummer: </label>
+                    <input type="text" asp-for="animal.ChipNumber"  aria-describedby="dateTimeHelp" placeholder="Enter chipnumber" step="3600" />
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="inputComment">Indtast test: </label>
+                    <input type="text" asp-for="animal.Name" id="inputForm" aria-describedby="textHelp" placeholder="Enter phonenumber">
+                    <label for="inputComment">Tmp: </label>
+
+                    <input type="text" asp-for="animal.Picture" id="inputForm" aria-describedby="textHelp" placeholder="Enter picturepath">
+
+                </div>
+                <button type="submit" class="btn btn-primary mt-5">Tilføj</button>
+            </form>
+            </div>
+            </div>
+</container-sm>
+<br />
+<p><a href="Animal">Klik her</a> for at komme tilbage til oversig over dyrene</p> 
