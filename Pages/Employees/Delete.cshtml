@@ -1,0 +1,19 @@
+﻿@page
+@model Eksamensprojekt___Gruppe_7.Pages.Employees.DeleteModel
+@using Eksamensprojekt___Gruppe_7.Models
+@*by Ahmed*@
+@{
+	ViewData["Title"] = "Slet medarbejder";
+}
+<h2>Er du sikker på, at du vil slette denne medarbejder?</h2>
+<hr />
+<div class="alert alert-warning">
+    <strong>@Model.Employee.Name</strong><br />
+	Stilling: @Model.Employee.JobTitle <br />
+	Email: @Model.Employee.Email <br />
+	Telefon: @Model.Employee.PhoneNumber <br />
+</div>
+<form method="post">
+	<button type="submit" class="btn btn-danger">Bekræft sletning</button>
+	<a asp-page="/Employees/Index" class="btn btn-secondary">Annuller</a>
+ </form>
