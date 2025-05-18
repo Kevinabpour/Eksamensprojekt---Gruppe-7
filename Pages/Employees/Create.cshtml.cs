@@ -27,7 +27,8 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
                 string folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Media");
                 string filePath = Path.Combine(folderPath, fileName);
                 // create the folder if it doesnt exist
-                if (!Directory.Exists(folderPath)) { Directory.CreateDirectory(folderPath); }
+                if (!Directory.Exists(folderPath))
+                { Directory.CreateDirectory(folderPath); }
                 //save the uploaded file to the target path
                 FileStream fileStream = new FileStream(filePath, FileMode.Create);
                 UploadedPicture.CopyTo(fileStream);
@@ -37,6 +38,8 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
             }
             // add the employee to a temp list
             IndexModel.TempEmployees.Add(Employee);
+            //set a message to show after adding
+            TempData["Message"] = "Medarbejderen blev tilføjet!";
             // redirect ti employee overview page
             return RedirectToPage("/Employees/Index");
         }

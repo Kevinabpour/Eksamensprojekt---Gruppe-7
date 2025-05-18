@@ -38,13 +38,20 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
         // this method runs when the form is submitted
         public IActionResult OnPost()
         {
-            // loopto find and remove the employee from the list
+            if (Employee == null || string.IsNullOrWhiteSpace(Employee.Name) )
+            {
+                //if the employee is not found, redirect to the employee overview page
+                return RedirectToPage("/Employee/Index");
+            }
+            // loop to find and remove the employee from the list
             for (int i = 0; i < IndexModel.TempEmployees.Count; i++)
             {
                 if (IndexModel.TempEmployees[i].Name == Employee.Name)
                 {
                     IndexModel.TempEmployees.RemoveAt(i);
-                    break;
+                    //set a message to show after deletion
+                    TempData["Message"] = "Medarbejderen blev slettet!";
+                    return RedirectToPage("/Employees/Index");
                 }
             }
             //redirect to the main list after deletion

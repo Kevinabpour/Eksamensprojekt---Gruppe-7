@@ -6,7 +6,13 @@
 	ViewData["Title"] = "Employees";
 }
 <h4> Her kan du se vores dygtige medarbejdere	</h4>
-<hr>
+<hr />
+@if (TempData["Message"] != null)
+{
+	<div class="alert alert-success">
+		@TempData["Message"]
+	</div>
+}
 <div class="row row-cols-3">
 
 	@foreach (Employee employee in Model.Employees)

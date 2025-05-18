@@ -10,7 +10,8 @@
 <form method="post"> 
 	<div class="form-group">
 		<label>Navn</label>
-		<input type="text" asp-for="Employee.Name" class="form-control" />
+		@*<input type="text" asp-for="Employee.Name" class="form-control" />*@
+		<input type="hidden" name="OriginalName" value="@Model.Employee.Name"/>
 	</div>
 	<div class="form-group">
 		<label>Stilling</label>

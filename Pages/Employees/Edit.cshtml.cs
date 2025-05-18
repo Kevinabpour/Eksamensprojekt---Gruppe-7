@@ -6,6 +6,8 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
 {
     public class EditModel : PageModel
     {
+        [BindProperty(SupportsGet = false)]
+        public string OriginalName { get; set; }
         //this property is bound to the form inputs in edit.cshtml
         [BindProperty]
         public Employee Employee { get; set; }
@@ -50,11 +52,16 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
             //find the employee in the list by name and update their data
             for (int i = 0; i < IndexModel.TempEmployees.Count; i++)
             {
-                if (IndexModel.TempEmployees[i].Name == Employee.Name)
+                if (IndexModel.TempEmployees[i].Name == OriginalName)
                 {
+                    IndexModel.TempEmployees[i] = Employee;
                     //replace the old employee data with the updated one
                     IndexModel.TempEmployees[i]= Employee;
-                    break;
+                    //set a message to show after editing
+                    TempData["Message"] = "Medarbejderen blev opdateret!";
+                    
+                    return RedirectToPage("/Employees/Index");
+
                 }
             }
             //redirect to the main list after editing
