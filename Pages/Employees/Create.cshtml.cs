@@ -38,7 +38,7 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
             // add the employee to a temp list
             IndexModel.TempEmployees.Add(Employee);
             // redirect ti employee overview page
-            return RedirectToPage("/Employees/Imdex");
+            return RedirectToPage("/Employees/Index");
         }
 
     }
