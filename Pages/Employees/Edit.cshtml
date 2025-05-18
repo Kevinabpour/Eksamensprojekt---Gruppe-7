@@ -8,19 +8,24 @@
 <h2>Rediger medarbejder</h2>
 <hr />
 <form method="post"> 
-	<div class="form-group">
-		<label>Navn</label>
-		@*<input type="text" asp-for="Employee.Name" class="form-control" />*@
 		<input type="hidden" name="OriginalName" value="@Model.Employee.Name"/>
+	
+	<div class="form-group">
+
+	     <label>Navn</label>
+		<input type="text" asp-for="Employee.Name" class="form-control" />
 	</div>
+
 	<div class="form-group">
 		<label>Stilling</label>
 		<input type="text" asp-for="Employee.JobTitle" class="form-control" />
 	</div>
+
 	<div class="form-group">
 		<label>Email</label>
 		<input type="email" asp-for="Employee.Email" class="form-control" />
 	</div>
+
 	<div class="form-group">
 		<label>Telefonnummer</label>
 		<input type="text" asp-for="Employee.PhoneNumber" class="form-control" />

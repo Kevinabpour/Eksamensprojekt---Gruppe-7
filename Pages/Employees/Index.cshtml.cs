@@ -9,10 +9,12 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
     public class IndexModel : PageModel
     {
         public static List<Employee> TempEmployees { get; set; } = new List<Employee>();
+        //this will make sure that we only initialize the list once
+        private static bool intialized = false;
         public List <Employee> Employees { get; set; }
         public void OnGet()
         {
-            if (TempEmployees.Count == 0)
+            if (!intialized)
             {
                 TempEmployees.AddRange(new List<Employee>
                 {
@@ -21,6 +23,8 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
                  new Employee("Maja","Maja.png", "12344330", "Maja@ri.dk", "Dyrepasser" ),
                  new Employee("Claus","Claus.png", "45875496", "--------", "Frivillig" )
                 });
+                //mark as initialized 
+                intialized = true;
             }
             Employees = TempEmployees;
         }

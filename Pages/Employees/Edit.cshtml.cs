@@ -54,7 +54,6 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
             {
                 if (IndexModel.TempEmployees[i].Name == OriginalName)
                 {
-                    IndexModel.TempEmployees[i] = Employee;
                     //replace the old employee data with the updated one
                     IndexModel.TempEmployees[i]= Employee;
                     //set a message to show after editing
