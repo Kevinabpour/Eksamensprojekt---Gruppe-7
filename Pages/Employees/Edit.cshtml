@@ -1,4 +1,4 @@
-﻿@page "{id}"
+﻿@page "{id:int}"
 @model Eksamensprojekt___Gruppe_7.Pages.Employees.EditModel
 @using Eksamensprojekt___Gruppe_7.Models
 @*by Ahmed*@
@@ -7,9 +7,9 @@
 }
 <h2>Rediger medarbejder</h2>
 <hr />
-<form method="post"> 
-		<input type="hidden" name="OriginalName" value="@Model.Employee.Name"/>
-	
+<form method="post">
+
+	<input type="hidden" asp-for="Employee.Id" />
 	<div class="form-group">
 
 	     <label>Navn</label>

@@ -4,6 +4,7 @@
 {
     public class Employee
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Picture { get; set; }
         public string PhoneNumber { get; set; }
@@ -15,8 +16,9 @@
             
         }
 
-        public Employee(string name, string picture, string phoneNumber, string email, string jobTitle)
+        public Employee(int id, string name, string picture, string phoneNumber, string email, string jobTitle)
         {
+            Id = id;
             Name = name;
             Picture = picture;
             PhoneNumber = phoneNumber;
