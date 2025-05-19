@@ -1,6 +1,4 @@
 ﻿using Eksamensprojekt___Gruppe_7.Models;
-using Microsoft.Extensions.Logging;
-using static System.Net.Mime.MediaTypeNames;
 //by Kevin
 namespace Eksamensprojekt___Gruppe_7.Repositories
 {
@@ -40,18 +38,24 @@ namespace Eksamensprojekt___Gruppe_7.Repositories
             _animals = new List<Animal>();
             _animals.Add(new Animal(
                 name: "Trofast",
+                size: 75,
                 chipnumber: "4572",
-                text: "test",
+                race: "Schæfer",
+                characteristics: "Hund, Sort/brun, flade ører, tam",
                 picture: "Dyr1 (Trofast).png"));
             _animals.Add(new Animal(
                 name: "Misser",
+                size: 34,
                 chipnumber: "4571",
-                text: "test",
+                race: "Perser",
+                characteristics: "Kat, stribet pels, tam",
                 picture: "Dyr2 (Misser).png"));
             _animals.Add(new Animal(
                 name: "Trofast",
+                size: 58,
                 chipnumber: "4572",
-                text: "test",
+                race: "Puddel",
+                characteristics: "Hund, hvid pels, tam",
                 picture: "Dyr1 (Trofast).png"));
 
         }

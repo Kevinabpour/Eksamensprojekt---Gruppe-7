@@ -6,8 +6,10 @@
 
         private static int _tempID = 0;
         string _name;
+        int _size;
         string _chipNumber;
-        string _text;
+        string _race;
+        string _characteristics;
         string _picture;
         bool _avaliability;
         int _id;
@@ -17,15 +19,25 @@
             get { return _name; }
             set { _name = value; }
         }
+        public int Size
+        {
+            get { return _size; }
+            set { _size = value; }
+        }
         public string ChipNumber
         {
             get { return _chipNumber; }
             set { _chipNumber = value; }
         }
-        public string Text
+        public string Race
         {
-            get { return _text; }
-            set { _text = value; }
+            get { return _race; }
+            set { _race = value; }
+        }
+        public string Characteristics
+        {
+            get { return _characteristics; }
+            set { _characteristics = value; }
         }
         public string Picture
         {
@@ -50,22 +62,25 @@
         public Animal()
         {
             _name = "test";
+            _size = 0;
             _chipNumber = "test";
-            _text = "test";
+            _race = "test";
             _picture = "test";
             _avaliability = true;
             _id = _tempID++;
             Defect = new List<string>(); // by Ahmed
 
         }
-        public Animal(string name, string chipnumber, string text, string picture) : this()
+        public Animal(string name, int size, string chipnumber, string race, string characteristics, string picture) : this()
         {
             _name = name;
+            _size = size;
             _chipNumber = chipnumber;
-            _text = text;
+            _race = Race;
+            _characteristics = characteristics;
             _picture = picture;
         }
-        public Animal(string name, string chipnumber, string text, string picture, bool avaliabilty) : this(name, chipnumber, text, picture)
+        public Animal(string name, int size, string chipnumber, string race, string characteristics, string picture, bool avaliabilty) : this(name, size, chipnumber, race, characteristics, picture)
         {
             _avaliability = avaliabilty;
 

@@ -12,14 +12,14 @@
         <div class="card-body text-center">
             <form method="post">
                 <div class="form-group container-fluid">
-                    <label for="inputDateTime">Fornavn: </label>
+                    <label for="inputDateTime">Navn: </label>
                     <input type="text" asp-for="animal.Name"  aria-describedby="dateTimeHelp" placeholder="Enter name" step="3600">
                     <label for="inputDateTime">Chipnummer: </label>
                     <input type="text" asp-for="animal.ChipNumber"  aria-describedby="dateTimeHelp" placeholder="Enter chipnumber" step="3600" />
                 </div>
 
                 <div class="form-group mt-2">
-                    <label for="inputComment">Indtast test: </label>
+                    <label for="inputComment">Indtast: race</label>
                     <input type="text" asp-for="animal.Name" id="inputForm" aria-describedby="textHelp" placeholder="Enter phonenumber">
                     <label>Billede</label>
                     <input type="file" asp-for="animal.Picture" class="form-control-file" />
