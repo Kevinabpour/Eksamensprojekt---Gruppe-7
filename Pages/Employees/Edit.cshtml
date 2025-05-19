@@ -39,6 +39,8 @@
 		<span asp-validation-for="Employee.Name" class="text-danger"></span>
 
 	</div>
+	<input type="hidden" asp-for="ExistingPicture" />
+
 	<button type="submit" class="btn btn-success">Gem</button>
 	<a asp-page="/Employees/Index" class="btn btn-secondary">Annuller</a>
 </form>

@@ -16,6 +16,9 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
         [BindProperty]
         public Employee Employee { get; set; }
 
+        [BindProperty]
+        public string ExistingPicture { get; set; }
+
         public IActionResult OnGet()
         {
             Employee = _repo.GetById(Id);
@@ -24,6 +27,7 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
                 {
                 return RedirectToPage("/Employees/Index");
                 }
+            ExistingPicture = Employee.Picture;
             return Page();
         }
             
@@ -32,10 +36,14 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
         {
             // Check if the form data is valid
             //if (!ModelState.IsValid)
-          //  {
-                //if not, reload the page with validation messages
-           //     return Page();
-         //   }
+            // {
+            //if not, reload the page with validation messages
+             //    return Page();
+            //  }
+            if (string.IsNullOrEmpty(Employee.Picture))
+            {
+                Employee.Picture = ExistingPicture;
+            }
            _repo.Update(Employee);
             //set a message to show after editing
             TempData["Message"] = "Medarbejderen blev opdateret!";

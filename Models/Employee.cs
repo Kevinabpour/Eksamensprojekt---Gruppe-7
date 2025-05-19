@@ -11,6 +11,7 @@ namespace Eksamensprojekt___Gruppe_7.Models
         public string Name { get; set; }
 
         public string Picture { get; set; }
+
         [Required(ErrorMessage = "Telefonnummer er påkrævet.")]
         public string PhoneNumber { get; set; }
         [Required(ErrorMessage = "Email er påkrævet.")]
