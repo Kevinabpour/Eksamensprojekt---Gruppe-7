@@ -23,12 +23,8 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
 
         public IActionResult OnPost()
         {
-            // Check if the form data is valid
-            if (!ModelState.IsValid)
-            //if not, reload the page with validation messages
-            { return Page(); }
             //check if the pic is uploaded
-            if (UploadedPicture!=null)
+            if (UploadedPicture!=null && UploadedPicture.Length > 0)
             // get the uploaded file name
             {
                 String  fileName = UploadedPicture.FileName;
@@ -55,6 +51,7 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
             TempData["Message"] = "Medarbejderen blev tilføjet!";
             // redirect ti employee overview page
             return RedirectToPage("/Employees/Index");
+
         }
 
     }

@@ -31,11 +31,11 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
         public IActionResult OnPost()
         {
             // Check if the form data is valid
-            if (!ModelState.IsValid)
-            {
+            //if (!ModelState.IsValid)
+          //  {
                 //if not, reload the page with validation messages
-                return Page();
-            }
+           //     return Page();
+         //   }
            _repo.Update(Employee);
             //set a message to show after editing
             TempData["Message"] = "Medarbejderen blev opdateret!";
