@@ -1,4 +1,5 @@
 ﻿namespace Eksamensprojekt___Gruppe_7.Models
+//By Kevin
 {
     public class Animal
     {
