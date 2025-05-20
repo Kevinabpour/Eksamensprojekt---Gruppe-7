@@ -1,17 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Eksamensprojekt___Gruppe_7.Models;
-using System.IO;
-using Eksamensprojekt___Gruppe_7.Repositories;
-using System.IO.Pipes;
-
+using Eksamensprojekt___Gruppe_7.Service;
 // by Ahmed
+
 namespace Eksamensprojekt___Gruppe_7.Pages.Employees
 {
     public class CreateModel : PageModel
     {
         //this will make sure that we only initialize the list once
-        private readonly IEmployeeRepo _repo = new EmployeeRepo();
+        private readonly EmployeeService _service = new EmployeeService();
 
         //property binds to the Employee form inputs
         [BindProperty]
@@ -45,7 +43,7 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
                 Employee.Picture = fileName;
             }
             //add the employee to the list
-            _repo.Add(Employee);
+            _service.Add(Employee);
 
             //set a message to show after adding
             TempData["Message"] = "Medarbejderen blev tilføjet!";

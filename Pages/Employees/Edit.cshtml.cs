@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Eksamensprojekt___Gruppe_7.Models;
-using Eksamensprojekt___Gruppe_7.Repositories;
+using Eksamensprojekt___Gruppe_7.Service;
 //by Ahmed
 namespace Eksamensprojekt___Gruppe_7.Pages.Employees
 {
     public class EditModel : PageModel
     {
-        private readonly IEmployeeRepo _repo = new EmployeeRepo();
+        private readonly EmployeeService _service = new EmployeeService();
 
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
@@ -21,7 +21,7 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
 
         public IActionResult OnGet()
         {
-            Employee = _repo.GetById(Id);
+            Employee = _service.GetById(Id);
             
                 if (Employee == null)
                 {
@@ -44,7 +44,7 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
             {
                 Employee.Picture = ExistingPicture;
             }
-           _repo.Update(Employee);
+           _service.Update(Employee);
             //set a message to show after editing
             TempData["Message"] = "Medarbejderen blev opdateret!";
             //redirect to the main list after editing
