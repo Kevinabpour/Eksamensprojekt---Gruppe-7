@@ -1,14 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Eksamensprojekt___Gruppe_7.Models;
-using Eksamensprojekt___Gruppe_7.Repositories;
+using Eksamensprojekt___Gruppe_7.Service;
 // by Ahmed
 
 namespace Eksamensprojekt___Gruppe_7.Pages.Employees
 {
     public class DeleteModel : PageModel
     {
-        private readonly IEmployeeRepo _repo = new EmployeeRepo();
+
+        // Instance of the service used to perform employee operations 
+        private readonly EmployeeService _service = new EmployeeService();
 
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
@@ -17,7 +19,9 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
         // this method runs when the page is loaded
         public IActionResult OnGet()
         {
-            Employee = _repo.GetById(Id);
+
+            //get employee by ID to confirm deletion
+            Employee = _service.GetById(Id);
            
             //if not found, redirect to the employee overview page
             if (Employee == null)
@@ -30,7 +34,9 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
         // this method runs when the form is submitted
         public IActionResult OnPost()
         {
-            _repo.Delete(Id);
+
+            //delete employee by ID
+            _service.Delete(Id);
             TempData["Message"] = "Medarbejderen blev slettet!";
             return RedirectToPage("/Employees/Index");
 

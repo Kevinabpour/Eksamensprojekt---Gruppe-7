@@ -7,12 +7,16 @@
 }
 <h4> Her kan du se vores dygtige medarbejdere</h4>
 <hr />
+
+@* Display a success message if TempData["Message"] is set *@
 @if (TempData["Message"] != null)
 {
 	<div class="alert alert-success">
 		@TempData["Message"]
 	</div>
 }
+
+@* Display employee cards *@
 <div class="row row-cols-3">
 
 	@foreach (Employee employee in Model.Employees)

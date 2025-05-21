@@ -7,10 +7,15 @@
 }
 <h2>Rediger medarbejder</h2>
 <hr />
+
+@* form for editing employee data *@
 <form method="post">
 	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
+	@* Hidden field for employee ID *@
 	<input type="hidden" asp-for="Employee.Id" />
+
+	@* name field*@
 	<div class="form-group">
 
 	     <label>Navn</label>
@@ -19,6 +24,7 @@
 
 	</div>
 
+	@* job title field*@
 	<div class="form-group">
 		<label>Stilling</label>
 		<input type="text" asp-for="Employee.JobTitle" class="form-control" />
@@ -26,6 +32,7 @@
 
 	</div>
 
+	@* email field*@
 	<div class="form-group">
 		<label>Email</label>
 		<input type="email" asp-for="Employee.Email" class="form-control" />
@@ -33,14 +40,18 @@
 
 	</div>
 
+	@* phone number field*@
 	<div class="form-group">
 		<label>Telefonnummer</label>
 		<input type="text" asp-for="Employee.PhoneNumber" class="form-control" />
 		<span asp-validation-for="Employee.Name" class="text-danger"></span>
 
 	</div>
+
+	@* Hidden field to keep the existing picture filename if no new picture is uploaded *@
 	<input type="hidden" asp-for="ExistingPicture" />
 
+	@*submit and cancel buttons*@
 	<button type="submit" class="btn btn-success">Gem</button>
 	<a asp-page="/Employees/Index" class="btn btn-secondary">Annuller</a>
 </form>

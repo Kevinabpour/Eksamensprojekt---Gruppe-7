@@ -7,10 +7,17 @@ namespace Eksamensprojekt___Gruppe_7.Repositories
     public class EmployeeRepo : IEmployeeRepo
     {
 
+        //static list of employees
         private static List<Employee> _employees = new List<Employee>();
+
+        //static variable to assign a new unique ID
         private static int nextId = 1;
+
+
+        //static variable to check if the list is initialized
         private static bool initialized = false;
 
+        // Constructor - initializes with default employees if not already initialized
         public EmployeeRepo()
         {
            if (!initialized)
@@ -30,18 +37,21 @@ namespace Eksamensprojekt___Gruppe_7.Repositories
         {
             return new List<Employee>(_employees);
         }
-        //returns an employee by id
+
+        //returns an employee by ID
         public Employee GetById(int id)
         {
             return _employees.FirstOrDefault(e => e.Id == id);
         }
-        //adds an employee to the list
+
+        //adds an employee to the list and assigns a new unique ID
         public void Add(Employee employee)
         {
             employee.Id = nextId++;
             nextId++;
             _employees.Add(employee);
         }
+
         //updates an employee in the list
         public void Update(Employee employee)
         {
@@ -54,7 +64,7 @@ namespace Eksamensprojekt___Gruppe_7.Repositories
                 }
             }
         }
-        //deletes an employee from the list
+        //deletes an employee from the list by ID if found
         public void Delete(int id)
         {
             Employee employee= GetById(id);

@@ -1,13 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Eksamensprojekt___Gruppe_7.Models;
-using Eksamensprojekt___Gruppe_7.Repositories;
+using Eksamensprojekt___Gruppe_7.Service;
 //by Ahmed
+
 namespace Eksamensprojekt___Gruppe_7.Pages.Employees
 {
     public class EditModel : PageModel
     {
-        private readonly IEmployeeRepo _repo = new EmployeeRepo();
+
+        // Instance of the service used to perform employee operations 
+        private readonly EmployeeService _service = new EmployeeService();
 
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
@@ -21,12 +24,16 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
 
         public IActionResult OnGet()
         {
-            Employee = _repo.GetById(Id);
+
+            //get an employee by ID
+            Employee = _service.GetById(Id);
             
                 if (Employee == null)
                 {
                 return RedirectToPage("/Employees/Index");
                 }
+
+            //save old pic
             ExistingPicture = Employee.Picture;
             return Page();
         }
@@ -40,13 +47,19 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
             //if not, reload the page with validation messages
              //    return Page();
             //  }
+
+            //if no new pic was set, use the existing one
             if (string.IsNullOrEmpty(Employee.Picture))
             {
                 Employee.Picture = ExistingPicture;
             }
-           _repo.Update(Employee);
+
+            //update employee data
+            _service.Update(Employee);
+
             //set a message to show after editing
             TempData["Message"] = "Medarbejderen blev opdateret!";
+
             //redirect to the main list after editing
             return RedirectToPage("/Employees/Index");
         }

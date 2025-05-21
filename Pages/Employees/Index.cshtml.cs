@@ -1,6 +1,5 @@
 using Eksamensprojekt___Gruppe_7.Models;
-using Eksamensprojekt___Gruppe_7.Repositories;
-using Microsoft.AspNetCore.Mvc;
+using Eksamensprojekt___Gruppe_7.Service;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 // by Ahmed
@@ -9,13 +8,19 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
 {
     public class IndexModel : PageModel
     {
-        private readonly IEmployeeRepo _repo = new EmployeeRepo();
+
+        // Instance of the service used to perform employee operations 
+        private readonly EmployeeService _service = new EmployeeService();
+      
         //brings all the employees from the repo
         public List <Employee> Employees { get; set; }
+
+        //this method runs when the page is loaded
         public void OnGet()
         {
-          
-            Employees = _repo.GetAll();
+
+            //get all employees
+            Employees = _service.GetAll();
         }
     }
 }
