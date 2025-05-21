@@ -20,6 +20,11 @@ html {
     color: crimson;
 }
 
+.carousel-inner img {
+    max-height: 500px;
+    object-fit: contain;
+}
+
 html {
   position: relative;
   min-height: 100%;
