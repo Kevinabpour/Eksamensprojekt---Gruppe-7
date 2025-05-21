@@ -20,11 +20,13 @@ namespace Eksamensprojekt___Gruppe_7.Models
         [Required(ErrorMessage = "Jobtitel er påkrævet.")]
         public string JobTitle { get; set; }
 
+        //default constructor
         public Employee()
         {
             
         }
 
+        //constructor with parameters used when creating a new employee
         public Employee(int id, string name, string picture, string phoneNumber, string email, string jobTitle)
         {
             Id = id;

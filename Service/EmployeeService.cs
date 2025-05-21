@@ -7,24 +7,35 @@ namespace Eksamensprojekt___Gruppe_7.Service
     public class EmployeeService
     {
 
+        // Instance of the service used to perform employee operations 
         private readonly EmployeeRepo _repo = new EmployeeRepo();
-        public List<Employee> GetAll()
+
+        //get alla employees
+        public List<Employee> GetAll() 
         {
             return _repo.GetAll();
         }
-        public Employee GetById(int id)
+
+        //get a single employee by ID
+        public Employee GetById(int id) 
         {
             return _repo.GetById(id);
         }
-        public void Add(Employee employee)
+
+        //add a new employee
+        public void Add(Employee employee) 
         {
             _repo.Add(employee);
         }
+
+        //edit an employee
         public void Update(Employee employee)
         {
             _repo.Update(employee);
         }
-        public void Delete(int id)
+
+        //delete an employee
+        public void Delete(int id) 
         {
             _repo.Delete(id);
         }
