@@ -1,35 +1,24 @@
 [
-    {
-        "Name": "Bella",
-        "Size": 25,
-        "ChipNumber": "12345",
-        "Race": "Labrador",
-        "Characteristics": "Venlig og legesyg",
-        "Picture": "Dyr1 (Trofast).png",
-        "Avaliability": true,
-        "Id": 1,
-        "Defect": []
-    },
-    {
-        "Name": "Trofast",
-        "Size": 12,
-        "ChipNumber": "54321",
-        "Race": "Maine Coon",
-        "Characteristics": "Rolig og kælen",
-        "Picture": "Dyr1 (Trofast).png",
-        "Avaliability": false,
-        "Id": 2,
-        "Defect": []
-    },
-    {
-        "Name": "Misser",
-        "Size": 45,
-        "ChipNumber": "11223",
-        "Race": "Perser",
-        "Characteristics": "Energisk og sød",
-        "Picture": "Dyr2 (misser).png",
-        "Avaliability": true,
-        "Id": 3,
-        "Defect": []
-    }
+  {
+    "Name": "Trofast",
+    "Size": 12,
+    "ChipNumber": "54321",
+    "Race": "Maine Coon",
+    "Characteristics": "Rolig og k\u00E6len",
+    "Picture": "Dyr1 (Trofast).png",
+    "Avaliability": false,
+    "Defect": [],
+    "Id": 2
+  },
+  {
+    "Name": "Misser",
+    "Size": 45,
+    "ChipNumber": "11223",
+    "Race": "Perser",
+    "Characteristics": "Energisk og s\u00F8d",
+    "Picture": "Dyr2 (misser).png",
+    "Avaliability": true,
+    "Defect": [],
+    "Id": 3
+  }
 ]

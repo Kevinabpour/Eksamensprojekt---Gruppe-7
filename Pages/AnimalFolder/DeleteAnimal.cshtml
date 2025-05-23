@@ -1,23 +1,22 @@
 ﻿@page "{id:int}"
-@model Eksamensprojekt___Gruppe_7.Pages.Employees.DeleteModel
+@model Eksamensprojekt___Gruppe_7.Pages.AnimalFolder.DeleteAnimalModel
 @using Eksamensprojekt___Gruppe_7.Models
-@*by Ahmed*@
+
 @{
-	ViewData["Title"] = "Slet medarbejder";
+    ViewData["Title"] = "Slet dyr";
 }
-<h2>Er du sikker på, at du vil slette denne medarbejder?</h2>
+
+<h2>Er du sikker på, at du vil slette dette dyr?</h2>
 <hr />
 
-@* Display basic info about the employee to be deleted *@
 <div class="alert alert-warning">
-    <strong>@Model.Employee.Name</strong><br />
-	Stilling: @Model.Employee.JobTitle <br />
-	Email: @Model.Employee.Email <br />
-	Telefon: @Model.Employee.PhoneNumber <br />
+    <strong>@Model.Animal.Name</strong><br />
+    Race: @Model.Animal.Race <br />
+    Chipnummer: @Model.Animal.ChipNumber <br />
+    Størrelse: @Model.Animal.Size <br />
 </div>
 
-@* Confirmation form *@
 <form method="post">
-	<button type="submit" class="btn btn-danger">Bekræft sletning</button>
-	<a asp-page="/Employees/Index" class="btn btn-secondary">Annuller</a>
- </form>
+    <button type="submit" class="btn btn-danger">Bekræft sletning</button>
+    <a asp-page="Animal" class="btn btn-secondary">Annuller</a>
+</form>
