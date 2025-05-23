@@ -5,7 +5,7 @@
         "ChipNumber": "12345",
         "Race": "Labrador",
         "Characteristics": "Venlig og legesyg",
-        "Picture": "Dyr 1 (Trofast).png",
+        "Picture": "Dyr1 (Trofast).png",
         "Avaliability": true,
         "Id": 1,
         "Defect": []
@@ -16,7 +16,7 @@
         "ChipNumber": "54321",
         "Race": "Maine Coon",
         "Characteristics": "Rolig og kælen",
-        "Picture": "Dyr 1 (Trofast).png",
+        "Picture": "Dyr1 (Trofast).png",
         "Avaliability": true,
         "Id": 2,
         "Defect": []
@@ -27,7 +27,7 @@
         "ChipNumber": "11223",
         "Race": "Perser",
         "Characteristics": "Energisk og sød",
-        "Picture": "Dyr 2 (misser).png",
+        "Picture": "Dyr2 (misser).png",
         "Avaliability": true,
         "Id": 3,
         "Defect": []
