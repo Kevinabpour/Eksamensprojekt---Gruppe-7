@@ -41,11 +41,12 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
         //this method is called when the form is submitted
         public IActionResult OnPost()
         {
+
             // Check if the form data is valid
             //if (!ModelState.IsValid)
             // {
             //if not, reload the page with validation messages
-             //    return Page();
+            //    return Page();
             //  }
 
             //if no new pic was set, use the existing one
@@ -62,6 +63,7 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Employees
 
             //redirect to the main list after editing
             return RedirectToPage("/Employees/Index");
+
         }
     }
 }

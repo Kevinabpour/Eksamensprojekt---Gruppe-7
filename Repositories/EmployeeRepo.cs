@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Eksamensprojekt___Gruppe_7.Models;
+﻿using Eksamensprojekt___Gruppe_7.Models;
 //by Ahmed
 
 namespace Eksamensprojekt___Gruppe_7.Repositories
@@ -55,14 +54,18 @@ namespace Eksamensprojekt___Gruppe_7.Repositories
         //updates an employee in the list
         public void Update(Employee employee)
         {
-            for (int i = 0; i < _employees.Count; i++)
+            //find the index of the employee with the same ID
+            int index = _employees.FindIndex(e => e.Id == employee.Id);
+
+            //if not found, throw exception
+            if (index == -1)
             {
-                if (_employees[i].Id == employee.Id)
-                {
-                    _employees[i] = employee;
-                    break;
-                }
+                //using a specific exception type (KeyNotFoundException) to clearly indicate that the employee wasnt found
+                throw new KeyNotFoundException("Medarbejder findes ikke!");
             }
+
+            //replace the old employee data with the new one
+            _employees[index] = employee;
         }
         //deletes an employee from the list by ID if found
         public void Delete(int id)
