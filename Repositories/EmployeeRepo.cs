@@ -47,7 +47,6 @@ namespace Eksamensprojekt___Gruppe_7.Repositories
         public void Add(Employee employee)
         {
             employee.Id = nextId++;
-            nextId++;
             _employees.Add(employee);
         }
 
