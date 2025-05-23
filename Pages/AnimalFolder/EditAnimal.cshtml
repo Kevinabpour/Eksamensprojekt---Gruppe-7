@@ -24,6 +24,11 @@
     </div>
 
     <div class="form-group">
+        <label asp-for="Animal.BirthDate">Fødselsdato</label>
+        <input asp-for="Animal.BirthDate" type="date" class="form-control" />
+    </div>
+
+    <div class="form-group">
         <label asp-for="Animal.Race">Race</label>
         <input asp-for="Animal.Race" class="form-control" />
         <span asp-validation-for="Animal.Race" class="text-danger"></span>
@@ -50,7 +55,7 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="ImageFile">Upload nyt billede (valgfrit)</label>
+        <label asp-for="ImageFile">Upload nyt billede</label>
         <input asp-for="ImageFile" type="file" class="form-control-file" />
         <span asp-validation-for="ImageFile" class="text-danger"></span>
     </div>
