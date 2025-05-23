@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Http;
 using Eksamensprojekt___Gruppe_7.Models;
-using System.IO;
-using System;
 using Eksamensprojekt___Gruppe_7.Service;
+using System;
+using System.IO;
 
 namespace Eksamensprojekt___Gruppe_7.Pages.AnimalFolder
 {
@@ -15,10 +15,8 @@ namespace Eksamensprojekt___Gruppe_7.Pages.AnimalFolder
 
         [BindProperty]
         public Animal Animal { get; set; }
-
         [BindProperty]
         public IFormFile ImageFile { get; set; }
-
         [BindProperty]
         public string ExistingPicture { get; set; }
 
@@ -33,15 +31,19 @@ namespace Eksamensprojekt___Gruppe_7.Pages.AnimalFolder
 
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid) return Page();
+            // Debug: confirm handler runs and model is bound
+            Console.WriteLine($"[EditAnimal] OnPost: Id={Animal.Id}, Name={Animal.Name}, Avaliability={Animal.Avaliability}");
+
+            if (!ModelState.IsValid)
+                return Page();
 
             if (ImageFile != null)
             {
-                string fileName = $"{Guid.NewGuid()}{Path.GetExtension(ImageFile.FileName)}";
-                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "media", fileName);
-                Directory.CreateDirectory(Path.GetDirectoryName(path));
-                using var stream = new FileStream(path, FileMode.Create);
-                ImageFile.CopyTo(stream);
+                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(ImageFile.FileName)}";
+                var mediaPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Media", fileName);
+                Directory.CreateDirectory(Path.GetDirectoryName(mediaPath));
+                using var fs = new FileStream(mediaPath, FileMode.Create);
+                ImageFile.CopyTo(fs);
                 Animal.Picture = fileName;
             }
             else

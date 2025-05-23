@@ -4,29 +4,45 @@
     ViewData["Title"] = "Tilføj nyt dyr";
 }
 
-<h2>Tilføj nyt dyr</h2>
+<h2>@ViewData["Title"]</h2>
+
 <form method="post" enctype="multipart/form-data">
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
     <div class="form-group form-check">
         <input asp-for="Animal.Avaliability" class="form-check-input" />
-        <label class="form-check-label" asp-for="Animal.Avaliability">Tilgængelig</label>
+        <label asp-for="Animal.Avaliability" class="form-check-label">Tilgængelig</label>
     </div>
 
-    <label>Navn</label>
-    <input asp-for="Animal.Name" class="form-control" /><br />
+    <div class="form-group">
+        <label asp-for="Animal.Name">Navn</label>
+        <input asp-for="Animal.Name" class="form-control" />
+        <span asp-validation-for="Animal.Name" class="text-danger"></span>
+    </div>
 
-    <label>Race</label>
-    <input asp-for="Animal.Race" class="form-control" /><br />
+    <div class="form-group">
+        <label asp-for="Animal.Race">Race</label>
+        <input asp-for="Animal.Race" class="form-control" />
+        <span asp-validation-for="Animal.Race" class="text-danger"></span>
+    </div>
 
-    <label>Chipnummer</label>
-    <input asp-for="Animal.ChipNumber" class="form-control" /><br />
+    <div class="form-group">
+        <label asp-for="Animal.ChipNumber">Chipnummer</label>
+        <input asp-for="Animal.ChipNumber" class="form-control" />
+        <span asp-validation-for="Animal.ChipNumber" class="text-danger"></span>
+    </div>
 
-    <label>Størrelse</label>
-    <input asp-for="Animal.Size" class="form-control" /><br />
+    <div class="form-group">
+        <label asp-for="Animal.Size">Størrelse (cm)</label>
+        <input asp-for="Animal.Size" class="form-control" type="number" />
+        <span asp-validation-for="Animal.Size" class="text-danger"></span>
+    </div>
 
-    <label>Billede</label>
-    <input asp-for="ImageFile" type="file" class="form-control-file" /><br />
+    <div class="form-group">
+        <label asp-for="ImageFile">Billede</label>
+        <input asp-for="ImageFile" type="file" class="form-control-file" />
+        <span asp-validation-for="ImageFile" class="text-danger"></span>
+    </div>
 
     <button type="submit" class="btn btn-success">Gem</button>
     <a asp-page="Animal" class="btn btn-secondary">Annuller</a>
