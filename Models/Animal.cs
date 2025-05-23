@@ -6,6 +6,7 @@
 
         public int Id { get; set; }
         public string Name { get; set; }
+        public DateTime BirthDate { get; set; }
         public int Size { get; set; }
         public string ChipNumber { get; set; }
         public string Race { get; set; }
@@ -27,10 +28,11 @@
             Defect = new List<string>();
         }
 
-        public Animal(string name, int size, string chipnumber, string race, string characteristics, string picture)
+        public Animal(string name, DateTime birthdate, int size, string chipnumber, string race, string characteristics, string picture)
             : this()
         {
             Name = name;
+            BirthDate = birthdate;
             Size = size;
             ChipNumber = chipnumber;
             Race = race;
@@ -38,8 +40,8 @@
             Picture = picture;
         }
 
-        public Animal(string name, int size, string chipnumber, string race, string characteristics, string picture, bool avaliabilty)
-            : this(name, size, chipnumber, race, characteristics, picture)
+        public Animal(string name, DateTime birthdate, int size, string chipnumber, string race, string characteristics, string picture, bool avaliabilty)
+            : this(name, birthdate, size, chipnumber, race, characteristics, picture)
         {
             Avaliability = avaliabilty;
         }

@@ -50,6 +50,7 @@ namespace Eksamensprojekt___Gruppe_7.Repositories
             if (existing != null)
             {
                 existing.Name = animal.Name;
+                existing.BirthDate = animal.BirthDate;
                 existing.Size = animal.Size;
                 existing.ChipNumber = animal.ChipNumber;
                 existing.Race = animal.Race;
