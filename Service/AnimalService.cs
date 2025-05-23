@@ -5,33 +5,19 @@ namespace Eksamensprojekt___Gruppe_7.Service
 {
     public class AnimalService
     {
-        IAnimalRepo _animalRepo;
+        private readonly IAnimalRepo _repo;
 
-        public AnimalService(IAnimalRepo animalrepo)
+        public AnimalService(IAnimalRepo repo)
         {
-            _animalRepo = animalrepo;
+            _repo = repo;
         }
-        public void Add(Animal animal)
-        {
 
-            _animalRepo.Add(animal);
-        }
-        public void Remove(int name)
-        {
-            _animalRepo.Remove(name);
-        }
-        public List<Animal> GetAll()
-        {
-            return _animalRepo.GetAll();
-        }
-        public void Update(Event updatedAnimal)
-        {
-
-        }
-        public Animal Get(string name)
-        {
-            return _animalRepo.Get(name);
-        }
+        public List<Animal> GetAllAnimals() => _repo.GetAll();
+        public Animal GetAnimalById(int id) => _repo.GetById(id);
+        public void CreateAnimal(Animal a) => _repo.Add(a);
+        public void UpdateAnimal(Animal a) => _repo.Update(a);
+        public void DeleteAnimal(int id) => _repo.Remove(id);
     }
 }
+
 

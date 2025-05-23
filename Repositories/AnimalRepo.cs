@@ -1,63 +1,74 @@
-﻿using Eksamensprojekt___Gruppe_7.Models;
-//by Kevin
+﻿// Repositories/AnimalRepo.cs
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
+using Eksamensprojekt___Gruppe_7.Models;
+
 namespace Eksamensprojekt___Gruppe_7.Repositories
 {
     public class AnimalRepo : IAnimalRepo
     {
-        List<Animal> _animals;
-
-        public List<Animal> GetAll()
-        {
-            return _animals;
-        }
-        public void Add(Animal animal)
-        {
-            _animals.Add(animal);
-        }
-        public Animal Get(string name)
-        {
-            foreach (Animal animal in _animals)
-            {
-                if (name == animal.Name)
-                {
-                    return animal;
-                }
-            }
-            return null;
-        }
-
-
-
-        public void Remove(int member)
-        {
-            _animals.RemoveAt(member);
-        }
+        private const string FileName = "animals.json";
+        private readonly string _path;
+        private List<Animal> _animals;
 
         public AnimalRepo()
         {
-            _animals = new List<Animal>();
-            _animals.Add(new Animal(
-                name: "Trofast",
-                size: 75,
-                chipnumber: "4572",
-                race: "Schæfer",
-                characteristics: "Hund, Sort/brun, flade ører, tam",
-                picture: "Dyr1 (Trofast).png"));
-            _animals.Add(new Animal(
-                name: "Misser",
-                size: 34,
-                chipnumber: "4571",
-                race: "Perser",
-                characteristics: "Kat, stribet pels, tam",
-                picture: "Dyr2 (Misser).png"));
-            _animals.Add(new Animal(
-                name: "Trofast",
-                size: 58,
-                chipnumber: "4572",
-                race: "Puddel",
-                characteristics: "Hund, hvid pels, tam",
-                picture: "Dyr1 (Trofast).png"));
+            _path = Path.Combine(Directory.GetCurrentDirectory(), "Data", FileName);
+            if (!File.Exists(_path))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(_path));
+                File.WriteAllText(_path, "[]");
+            }
+            var json = File.ReadAllText(_path);
+            _animals = JsonSerializer.Deserialize<List<Animal>>(json) ?? new List<Animal>();
+        }
 
+        private void SaveChanges()
+        {
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            var json = JsonSerializer.Serialize(_animals, options);
+            File.WriteAllText(_path, json);
+        }
+
+        public List<Animal> GetAll() => _animals;
+
+        public Animal GetById(int id) => _animals.FirstOrDefault(a => a.Id == id);
+
+        public void Add(Animal animal)
+        {
+            animal.Id = _animals.Any() ? _animals.Max(a => a.Id) + 1 : 1;
+            _animals.Add(animal);
+            SaveChanges();
+        }
+
+        public void Update(Animal animal)
+        {
+            var existing = GetById(animal.Id);
+            if (existing != null)
+            {
+                existing.Name = animal.Name;
+                existing.Size = animal.Size;
+                existing.ChipNumber = animal.ChipNumber;
+                existing.Race = animal.Race;
+                existing.Characteristics = animal.Characteristics;
+                existing.Picture = animal.Picture;
+                existing.Avaliability = animal.Avaliability;
+                existing.Defect = animal.Defect;
+                SaveChanges();
+            }
+        }
+
+        public void Remove(int id)
+        {
+            var existing = GetById(id);
+            if (existing != null)
+            {
+                _animals.Remove(existing);
+                SaveChanges();
+            }
         }
     }
 }

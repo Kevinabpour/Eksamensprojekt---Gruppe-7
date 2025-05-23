@@ -1,26 +1,30 @@
 ﻿@page
-@model AnimalModel
+@model Eksamensprojekt___Gruppe_7.Pages.AnimalFolder.AnimalModel
 @{
+    ViewData["Title"] = "Alle dyr";
 }
-<!--By Kevin-->
-<h2>Oversigt over vores dyr</h2>
-<h4>Her kan du se oversigten over vores dyr. Du kan booke tid til at se dem, samt se deres status for salg.</h4>
-<br />
-<!DOCTYPE html>
-<html>
-<div class="row row-cols-3">
-    @foreach (var Animal in Model.Animals) 
+
+<h2>Her kan du se vores dyr</h2>
+
+<div class="row">
+    @foreach (var animal in Model.Animals)
     {
         <div class="col-md-4 mb-4">
-            <div class="card" style="width: 100%;">
-                <img class="card-img-top" src="/Media/@Animal.Picture" alt="Trofast">
+            <div class="card">
+                <img src="/media/@animal.Picture" class="card-img-top" alt="Dyr billede" style="height: 300px; object-fit: cover;" />
                 <div class="card-body">
-                    <h4 class="card-title">@Animal.Name</h4>
-                    <p class="card-text">Race.: @Animal.Race<br />Kendetegn: @Animal.Characteristics</p>
-                    <p class="card-text">Chip Nr.: @Animal.ChipNumber<br />Race/art: @Animal.Race</p>
-                    <a href="#" class="btn btn-primary">Rediger</a>
+                    <h5 class="card-title">@animal.Name</h5>
+                    <p class="card-text">
+                        Race: @animal.Race <br />
+                        Chipnummer: @animal.ChipNumber <br />
+                        Størrelse (cm): @animal.Size
+                    </p>
+                    <a asp-page="EditAnimal" asp-route-id="@animal.Id" class="btn btn-sm btn-outline-primary">Rediger</a>
+                    <a asp-page="DeleteAnimal" asp-route-id="@animal.Id" class="btn btn-sm btn-outline-danger">Slet</a>
                 </div>
             </div>
         </div>
     }
-    <p> <a asp-page="/AnimalFolder/AddAnimal" class="btn btn-success mt-4">Tilføj nyt dyr</a></p>
+</div>
+
+<a asp-page="AddAnimal" class="btn btn-success mt-3">Tilføj nyt dyr</a>

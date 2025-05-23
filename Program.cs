@@ -3,6 +3,7 @@ using Eksamensprojekt___Gruppe_7.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddScoped<AnimalService>();
 builder.Services.AddSingleton<IAnimalRepo, AnimalRepo>();
 builder.Services.AddSingleton<AnimalService>();
 builder.Services.AddSingleton<IEventRepo, EventRepo>();
