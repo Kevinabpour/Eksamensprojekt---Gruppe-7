@@ -17,7 +17,16 @@
                     <p class="card-text">
                         Race: @animal.Race <br />
                         Chipnummer: @animal.ChipNumber <br />
-                        Størrelse (cm): @animal.Size
+                        Størrelse (cm): @animal.Size <br />
+                        Tilgængelig:
+                        @if (animal.Avaliability)
+                        {
+                            <span class="text-success">Ja</span>
+                        }
+                        else
+                        {
+                            <span class="text-danger">Nej</span>
+                        }
                     </p>
                     <a asp-page="EditAnimal" asp-route-id="@animal.Id" class="btn btn-sm btn-outline-primary">Rediger</a>
                     <a asp-page="DeleteAnimal" asp-route-id="@animal.Id" class="btn btn-sm btn-outline-danger">Slet</a>

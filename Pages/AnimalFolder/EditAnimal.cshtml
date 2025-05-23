@@ -9,6 +9,11 @@
     <input type="hidden" asp-for="Animal.Id" />
     <input type="hidden" asp-for="ExistingPicture" />
 
+    <div class="form-group form-check"> 
+        <input asp-for="Animal.Avaliability" class="form-check-input" />
+        <label class="form-check-label" asp-for="Animal.Avaliability">Tilgængelig</label>
+    </div>
+
     <label>Navn</label>
     <input asp-for="Animal.Name" class="form-control" /><br />
 
