@@ -8,6 +8,7 @@ builder.Services.AddSingleton<IAnimalRepo, AnimalRepo>();
 builder.Services.AddSingleton<AnimalService>();
 builder.Services.AddSingleton<IEventRepo, EventRepo>();
 builder.Services.AddSingleton<EventService>();
+builder.Services.AddSingleton<BookingRepo>();
 builder.Services.AddRazorPages();
 
 var app = builder.Build();

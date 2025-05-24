@@ -1,0 +1,16 @@
+[
+  {
+    "AnimalId": 2,
+    "VisitorName": "Hans",
+    "VisitorType": "Dyrel\u00E6ge",
+    "VisitDate": "2025-05-24T02:06:00",
+    "Note": "Vaccine"
+  },
+  {
+    "AnimalId": 2,
+    "VisitorName": "test",
+    "VisitorType": "Kunde",
+    "VisitDate": "2025-05-24T12:24:00",
+    "Note": "hej"
+  }
+]

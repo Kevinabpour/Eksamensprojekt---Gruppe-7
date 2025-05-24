@@ -1,0 +1,36 @@
+﻿@page
+@model Eksamensprojekt___Gruppe_7.Pages.AnimalFolder.CreateBookingModel
+@{
+    ViewData["Title"] = "Book et besøg";
+}
+
+<h2>Book et besøg med et dyr</h2>
+
+<form method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <label>Dyr</label>
+    <select asp-for="Booking.AnimalId" class="form-control">
+        @foreach (var animal in Model.Animals)
+        {
+            <option value="@animal.Id">@animal.Name</option>
+        }
+    </select><br />
+
+    <label>Dit navn</label>
+    <input asp-for="Booking.VisitorName" class="form-control" /><br />
+
+    <label>Hvem er du?</label>
+    <select asp-for="Booking.VisitorType" class="form-control">
+        <option>Kunde</option>
+        <option>Dyrlæge</option>
+    </select><br />
+
+    <label>Hvornår vil du komme? (vi vender tilbage, om tidspunktet er muligt)</label>
+    <input asp-for="Booking.VisitDate" type="datetime-local" class="form-control" /><br />
+
+    <label>Note (valgfrit)</label>
+    <textarea asp-for="Booking.Note" class="form-control"></textarea><br />
+
+    <button type="submit" class="btn btn-primary">Book tid</button>
+</form>

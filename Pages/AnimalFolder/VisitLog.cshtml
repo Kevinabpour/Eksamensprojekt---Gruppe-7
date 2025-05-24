@@ -1,0 +1,33 @@
+﻿@page
+@model Eksamensprojekt___Gruppe_7.Pages.AnimalFolder.VisitLogModel
+@{
+    ViewData["Title"] = "Besøgslog";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@* if you want card-style use the div version, but here’s the table version *@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Dyr</th>
+            <th>Besøgende</th>
+            <th>Rolle</th>
+            <th>Dato og tid</th>
+            <th>Note</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var entry in Model.Bookings)
+        {
+            var animal = Model.Animals.FirstOrDefault(a => a.Id == entry.AnimalId);
+            <tr>
+                <td>@(animal?.Name ?? "Ukendt")</td>
+                <td>@entry.VisitorName</td>
+                <td>@entry.VisitorType</td>
+                <td>@entry.VisitDate.ToString("dd-MM-yyyy HH:mm")</td>
+                <td>@entry.Note</td>
+            </tr>
+        }
+    </tbody>
+</table>
