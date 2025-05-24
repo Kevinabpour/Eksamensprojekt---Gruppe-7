@@ -1,31 +1,62 @@
-﻿using Eksamensprojekt___Gruppe_7.Models;
-using Microsoft.Extensions.Logging;
-// by Kevin
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
+using Eksamensprojekt___Gruppe_7.Models;
+
 namespace Eksamensprojekt___Gruppe_7.Repositories
 {
     public class EventRepo : IEventRepo
     {
-        List<Event> _events;
+        private const string FileName = "events.json";
+        private readonly string _path;
+        private List<Event> _events;
 
         public EventRepo()
         {
-            _events = new List<Event>();
-
+            _path = Path.Combine(Directory.GetCurrentDirectory(), "Data", FileName);
+            if (!File.Exists(_path))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(_path));
+                File.WriteAllText(_path, "[]");
+            }
+            var json = File.ReadAllText(_path);
+            _events = JsonSerializer.Deserialize<List<Event>>(json) ?? new List<Event>();
         }
-        public List<Event> GetAll()
+
+        private void SaveChanges()
         {
-            return _events;
+            var options = new JsonSerializerOptions { WriteIndented = true };
+            File.WriteAllText(_path, JsonSerializer.Serialize(_events, options));
         }
-        public void Add(Event test)
+
+        public List<Event> GetAll() => _events;
+        public Event GetById(int id) => _events.FirstOrDefault(e => e.Id == id);
+
+        public void Add(Event ev)
         {
-            _events.Add(test);
+            ev.Id = _events.Any() ? _events.Max(x => x.Id) + 1 : 1;
+            _events.Add(ev);
+            SaveChanges();
         }
-        public void Remove(int name)
+
+        public void Update(Event ev)
         {
-            _events.RemoveAt(name);
+            var existing = GetById(ev.Id);
+            if (existing == null) return;
+            existing.Name = ev.Name;
+            existing.Description = ev.Description;
+            existing.Date = ev.Date;
+            SaveChanges();
         }
 
-
-
+        public void Remove(int id)
+        {
+            var existing = GetById(id);
+            if (existing == null) return;
+            _events.Remove(existing);
+            SaveChanges();
+        }
     }
 }

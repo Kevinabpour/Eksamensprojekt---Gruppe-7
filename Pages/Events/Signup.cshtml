@@ -1,0 +1,34 @@
+﻿@page "{id:int}"
+@model Eksamensprojekt___Gruppe_7.Pages.Events.SignupModel
+@{
+    ViewData["Title"] = "Tilmeld aktivitet";
+}
+
+<h2>@ViewData["Title"] – @Model.Event.Name</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Event.Id" />
+
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-group">
+        <label asp-for="Participant.Name">Navn</label>
+        <input asp-for="Participant.Name" class="form-control" />
+        <span asp-validation-for="Participant.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Participant.Email">Email</label>
+        <input asp-for="Participant.Email" type="email" class="form-control" />
+        <span asp-validation-for="Participant.Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Participant.PhoneNumber">Telefonnummer</label>
+        <input asp-for="Participant.PhoneNumber" class="form-control" />
+        <span asp-validation-for="Participant.PhoneNumber" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Tilmeld</button>
+    <a asp-page="Index" class="btn btn-secondary">Tilbage</a>
+</form>

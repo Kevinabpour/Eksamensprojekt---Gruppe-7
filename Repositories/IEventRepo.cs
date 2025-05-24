@@ -1,12 +1,14 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using System.Collections.Generic;
 using Eksamensprojekt___Gruppe_7.Models;
-//By Kevin
+
 namespace Eksamensprojekt___Gruppe_7.Repositories
 {
     public interface IEventRepo
     {
         List<Event> GetAll();
-        void Add(Event test);
-        void Remove(int name);
+        Event GetById(int id);
+        void Add(Event ev);
+        void Update(Event ev);
+        void Remove(int id);
     }
 }

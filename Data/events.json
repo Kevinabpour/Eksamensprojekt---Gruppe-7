@@ -1,0 +1,31 @@
+    [
+        {
+            "Id": 1,
+            "Name": "Fælles hundeluftning",
+            "Description": "Kom med på en hyggelig tur med andre hundeejere.",
+            "Date": "2025-06-01T10:00:00",
+            "Participants": []
+        },
+        {
+            "Id": 2,
+            "Name": "Løb i hamsterhjul",
+            "Description": "Deltag i vores sjove hamsterløb i hjulene!",
+            "Date": "2025-06-05T14:00:00",
+            "Participants": []
+        },
+        {
+            "Id": 3,
+            "Name": "Kat efter musen",
+            "Description": "Træn din kat i jagtlege med fjernstyrede mus.",
+            "Date": "2025-06-10T12:00:00",
+            "Participants": []
+        },
+        {
+            "Id": 4,
+            "Name": "Sommerfrokost",
+            "Description": "Nyd en uformel sommerfrokost med internatets dyr og personale.",
+            "Date": "2025-06-15T18:00:00",
+            "Participants": []
+        }
+    ]
+

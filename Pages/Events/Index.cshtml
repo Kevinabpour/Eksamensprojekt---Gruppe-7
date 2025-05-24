@@ -1,4 +1,22 @@
 ﻿@page
 @model Eksamensprojekt___Gruppe_7.Pages.Events.IndexModel
 @{
+    ViewData["Title"] = "Aktiviteter";
 }
+
+<h2>@ViewData["Title"]</h2>
+<div class="row">
+@foreach(var ev in Model.Events) {
+  <div class="col-md-6 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">@ev.Name</h5>
+        <p class="card-text"><em>@ev.Date.ToString("dd-MM-yyyy HH:mm")</em></p>
+        <p class="card-text">@ev.Description</p>
+        <p class="card-text"><strong>Tilmeldte:</strong> @ev.Participants.Count</p>
+        <a asp-page="/Events/Signup" asp-route-id="@ev.Id" class="btn btn-success">Tilmeld</a>
+      </div>
+    </div>
+  </div>
+}
+</div>
