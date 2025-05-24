@@ -1,34 +1,25 @@
 [
   {
-    "Id": 2,
-    "Name": "Brofast",
-    "Size": 12,
-    "ChipNumber": "54321",
-    "Race": "Maine Coon",
-    "Characteristics": "",
-    "Picture": "596d1d6d-bd00-4ebc-971b-6d7a709a9e8a.png",
-    "Avaliability": false,
-    "Defect": []
-  },
-  {
-    "Id": 3,
-    "Name": "Misser",
-    "Size": 45,
-    "ChipNumber": "11223",
-    "Race": "Perser",
-    "Characteristics": "Energisk og s\u00F8d",
-    "Picture": "Dyr2 (misser).png",
-    "Avaliability": true,
-    "Defect": []
-  },
-  {
     "Id": 4,
     "Name": "Test",
+    "BirthDate": "0001-01-01T00:00:00",
     "Size": 12,
     "ChipNumber": "2323",
     "Race": "Test",
     "Characteristics": "",
     "Picture": "26ba7a2f-7759-4987-bf10-174fe44c7bfb.png",
+    "Avaliability": false,
+    "Defect": []
+  },
+  {
+    "Id": 5,
+    "Name": "Trofast",
+    "BirthDate": "0001-01-01T00:00:00",
+    "Size": 13,
+    "ChipNumber": "54321",
+    "Race": "Maine Coon",
+    "Characteristics": "",
+    "Picture": "f1571678-423f-4b74-87f4-d0ede19e2d78.png",
     "Avaliability": false,
     "Defect": []
   }
