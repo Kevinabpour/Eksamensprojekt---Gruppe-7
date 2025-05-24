@@ -1,4 +1,5 @@
-﻿namespace Eksamensprojekt___Gruppe_7.Models
+﻿//BY KEVIN
+namespace Eksamensprojekt___Gruppe_7.Models
 {
     public class Booking
     {

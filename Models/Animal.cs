@@ -1,49 +1,40 @@
-﻿namespace Eksamensprojekt___Gruppe_7.Models
+﻿using System;
+using System.Collections.Generic;
+
+//BY KEVIN
+
+namespace Eksamensprojekt___Gruppe_7.Models
 {
     public class Animal
     {
-        private static int _tempID = 0;
-
+        // Unique identifier for the animal (assigned by the repository upon add)
         public int Id { get; set; }
+
+        // Name of the animal
         public string Name { get; set; }
+
+        // Birth date of the animal
         public DateTime BirthDate { get; set; }
+
+        // Size of the animal in centimeters
         public int Size { get; set; }
+
+        // Unique microchip number
         public string ChipNumber { get; set; }
+
+        // Breed or species of the animal
         public string Race { get; set; }
+
+        // Any special characteristics or notes
         public string Characteristics { get; set; }
+
+        // Filename of the animal's picture stored in wwwroot/media
         public string Picture { get; set; }
+
+        // Availability status (true = available for visits/adoption)
         public bool Avaliability { get; set; }
-        public List<string> Defect { get; set; }
 
-        public Animal()
-        {
-            Id = _tempID++;
-            Name = "test";
-            Size = 0;
-            ChipNumber = "test";
-            Race = "test";
-            Picture = "test";
-            Avaliability = true;
-            Characteristics = "";
-            Defect = new List<string>();
-        }
-
-        public Animal(string name, DateTime birthdate, int size, string chipnumber, string race, string characteristics, string picture)
-            : this()
-        {
-            Name = name;
-            BirthDate = birthdate;
-            Size = size;
-            ChipNumber = chipnumber;
-            Race = race;
-            Characteristics = characteristics;
-            Picture = picture;
-        }
-
-        public Animal(string name, DateTime birthdate, int size, string chipnumber, string race, string characteristics, string picture, bool avaliabilty)
-            : this(name, birthdate, size, chipnumber, race, characteristics, picture)
-        {
-            Avaliability = avaliabilty;
-        }
+        // List of defects or health notes
+        public List<string> Defect { get; set; } = new List<string>();
     }
 }
