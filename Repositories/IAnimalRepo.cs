@@ -1,5 +1,4 @@
-﻿// Repositories/IAnimalRepo.cs
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text.Json;
 using Eksamensprojekt___Gruppe_7.Models;
 
