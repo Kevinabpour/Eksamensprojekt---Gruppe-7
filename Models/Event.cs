@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
+//BY KEVIN
 namespace Eksamensprojekt___Gruppe_7.Models
 {
     public class Event
