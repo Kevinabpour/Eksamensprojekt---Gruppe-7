@@ -8,15 +8,21 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Events
     public class SignupModel : PageModel
     {
         private readonly IEventRepo _repo;
-        public SignupModel(IEventRepo repo) => _repo = repo;
 
+        public SignupModel(IEventRepo repo)
+        {
+            _repo = repo;
+        }
+
+        // Binds the Event
         [BindProperty]
         public Event Event { get; set; }
 
-        // Now bind a Participant object
+        // Bind a Participant
         [BindProperty]
         public Participant Participant { get; set; }
 
+        // Loads the event details
         public IActionResult OnGet(int id)
         {
             Event = _repo.GetById(id);
@@ -24,13 +30,21 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Events
             return Page();
         }
 
+        // POST: adds the participant and saves
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid) return Page();
+            // If any validation fails this redisplays the form
+            if (!ModelState.IsValid)
+            {
+                return Page();
+            }
 
+            // Retrieves the event, adds new participant, and save
             var ev = _repo.GetById(Event.Id);
             ev.Participants.Add(Participant);
-            _repo.Update(ev);  // Save the updated list
+            _repo.Update(ev);
+
+            // After sign-up this redirects back to the list of events
             return RedirectToPage("Index");
         }
     }
