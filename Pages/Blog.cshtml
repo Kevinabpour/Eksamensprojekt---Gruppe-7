@@ -1,0 +1,184 @@
+﻿@page
+@model Eksamensprojekt___Gruppe_7.Pages.Index1Model
+@{
+}
+<div class="blog-container">
+    <!-- Blog Header Section -->
+    <div class="blog-header">
+        <div class="blog-header-content">
+            <h1 class="blog-title">Velkommen til Roskilde Dyreinternats Blog</h1>
+            <img src="/wwwroot/Media/roskilde-dyreinternat.jpg" alt="Besøgsdag Roskilde Dyreinternat" style="width: 200px; height: auto; margin-top: 10px;" />
+            <p class="blog-subtitle">Omsorg, engagement og dyrenes hverdag</p>
+            <div class="blog-intro">
+                <p>Her deler vi historier, nyheder og oplevelser fra livet på internatet. Følg med i besøgsdage, arbejdsdage og særlige begivenheder – fortalt af bestyrelsen og vores dedikerede medarbejdere.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Posts -->
+    <div class="featured-posts">
+        <h2 class="section-title">Seneste opdateringer</h2>
+
+        <!-- First Post (Med udvidbart indhold) -->
+        <article class="post-card">
+            <div class="post-meta">
+                <span class="post-category">Besøgsdag</span>
+                <span class="post-date">Skrevet af Formand Madsen | 3. maj 2025</span>
+            </div>
+            <h3 class="post-title"><a href="#">Fantastisk besøgsdag med familier og firbenede venner</a></h3>
+            <p class="post-excerpt">Solen skinnede, og både børn og voksne hyggede sig med vores dyr...</p>
+
+            <div class="full-content" style="display: none;">
+                <p>Besøgsdagen bød på:</p>
+                <ul>
+                    <li>Rundvisning i internatet</li>
+                    <li>Mød og klap dyrene</li>
+                    <li>Kaffevogn og kagebod</li>
+                    <li>Legeområde for børn</li>
+                </ul>
+                <p>Tak til alle fremmødte og frivillige – vi glæder os til næste arrangement!</p>
+                <img src="" alt="Besøgsdag Roskilde Dyreinternat" style="max-width: 100%; margin-top: 10px;" />
+            </div>
+
+            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Læs mere ↓</a>
+        </article>
+
+        <!-- Second Post (Med udvidbart indhold) -->
+        <article class="post-card">
+            <div class="post-meta">
+                <span class="post-category">Arbejdsdag</span>
+                <span class="post-date">Skrevet af Bestyrelsesmedlem Sara | 15. april 2025</span>
+            </div>
+            <h3 class="post-title"><a href="#">Fælles arbejdsdag – ny kattegård og malede hundehuse</a></h3>
+            <p class="post-excerpt">Vi havde en super effektiv dag med både maling og konstruktion...</p>
+
+            <div class="full-content" style="display: none;">
+                <p>Dagens projekter inkluderede:</p>
+                <ol>
+                    <li>Opsætning af ny kattegård med klatretårn</li>
+                    <li>Maling af hundehusene i friske farver</li>
+                    <li>Rengøring og organisering af lageret</li>
+                </ol>
+                <p>En kæmpe tak til alle frivillige og medarbejdere – dyrene er begejstrede!</p>
+                <img src="" alt="Arbejdsdag Roskilde Dyreinternat" style="max-width: 100%; margin-top: 10px;" />
+            </div>
+
+            <a href="#" class="read-more" onclick="toggleContent(this); return false;">Læs mere ↓</a>
+        </article>
+    </div>
+
+    <!-- Admin Notice -->
+    <div class="admin-notice">
+        <div class="admin-content">
+            <div class="admin-badge">OPDATERING</div>
+            <h3 class="admin-title">Nyt fra internatsledelsen</h3>
+            <p class="admin-message">Kære dyrevenner – vi oplever stor interesse for adoptioner denne måned. Husk at booke tid, hvis I ønsker at besøge os og møde jeres måske kommende firbenede familiemedlem.</p>
+            <div class="admin-meta">
+                <span>Skrevet af Internatleder Louise | 1. maj 2025</span>
+            </div>
+        </div>
+        <img src="/wwwroot/Media/hund.jpg" alt="Dyr i Roskilde Dyreinternat" class="admin-image">
+    </div>
+</div>
+
+<!-- Script for toggling content -->
+<script>
+    function toggleContent(link) {
+      const content = link.previousElementSibling;
+      if (content.style.display === "none") {
+        content.style.display = "block";
+        link.textContent = "Vis mindre ↑";
+      } else {
+        content.style.display = "none";
+        link.textContent = "Læs mere ↓";
+      }
+    }
+</script>
+<style>
+
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0;
+        background-color: #f9f9f9;
+        color: #333;
+    }
+
+    .navbar {
+        background-color: #1c6ca2;
+        padding: 1rem;
+        display: flex;
+        gap: 1rem;
+    }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+    .blog-container {
+        max-width: 1000px;
+        margin: auto;
+        padding: 2rem;
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-create {
+        display: inline-block;
+        margin-bottom: 2rem;
+        padding: 0.5rem 1rem;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    .blog-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .blog-card {
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .blog-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+    .card-content {
+        padding: 1rem;
+    }
+
+        .card-content h2 {
+            margin: 0;
+        }
+
+        .card-content p {
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+    .card-actions {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+        .card-actions a {
+            text-decoration: none;
+            color: #0077cc;
+            font-weight: bold;
+        }
