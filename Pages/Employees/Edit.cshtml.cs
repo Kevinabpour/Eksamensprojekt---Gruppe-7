@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Eksamensprojekt___Gruppe_7.Models;
-using Eksamensprojekt___Gruppe_7.Service;
+using Eksamensgruppe_7___ClassLibrary.Models;
+using Eksamensgruppe_7___ClassLibrary.Service;
 //by Ahmed
 
 namespace Eksamensprojekt___Gruppe_7.Pages.Employees

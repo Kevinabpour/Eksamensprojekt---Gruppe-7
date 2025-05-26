@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Eksamensprojekt___Gruppe_7.Models;
+using Eksamensgruppe_7___ClassLibrary.Models;
 using System.Collections.Generic;
-using Eksamensprojekt___Gruppe_7.Service;
+using Eksamensgruppe_7___ClassLibrary.Service;
 
 namespace Eksamensprojekt___Gruppe_7.Pages.AnimalFolder
 {

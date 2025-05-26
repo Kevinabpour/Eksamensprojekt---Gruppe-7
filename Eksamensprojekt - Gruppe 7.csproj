@@ -11,4 +11,8 @@
     <Folder Include="wwwroot\Media\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Eksamensgruppe-7---ClassLibrary\Eksamensgruppe 7 - ClassLibrary.csproj" />
+  </ItemGroup>
+
 </Project>

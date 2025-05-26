@@ -1,5 +1,5 @@
-using Eksamensprojekt___Gruppe_7.Repositories;
-using Eksamensprojekt___Gruppe_7.Service;
+using Eksamensgruppe_7___ClassLibrary.Repositories;
+using Eksamensgruppe_7___ClassLibrary.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 

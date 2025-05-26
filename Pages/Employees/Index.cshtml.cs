@@ -1,5 +1,5 @@
-using Eksamensprojekt___Gruppe_7.Models;
-using Eksamensprojekt___Gruppe_7.Service;
+using Eksamensgruppe_7___ClassLibrary.Models;
+using Eksamensgruppe_7___ClassLibrary.Service;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 // by Ahmed
