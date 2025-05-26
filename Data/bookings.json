@@ -1,16 +1,1 @@
-[
-  {
-    "AnimalId": 2,
-    "VisitorName": "Hans",
-    "VisitorType": "Dyrel\u00E6ge",
-    "VisitDate": "2025-05-24T02:06:00",
-    "Note": "Vaccine"
-  },
-  {
-    "AnimalId": 2,
-    "VisitorName": "test",
-    "VisitorType": "Kunde",
-    "VisitDate": "2025-05-24T12:24:00",
-    "Note": "hej"
-  }
-]
+[{"AnimalId":2,"VisitorName":"Hans","VisitorType":"Dyrel\u00E6ge","VisitDate":"2025-05-24T02:06:00","Note":"Vaccine"},{"AnimalId":2,"VisitorName":"test","VisitorType":"Kunde","VisitDate":"2025-05-24T12:24:00","Note":"hej"},{"AnimalId":1,"VisitorName":"Test","VisitorType":"Dyrl\u00E6ge","VisitDate":"2025-05-30T18:24:00","Note":"Vaccine"},{"AnimalId":1,"VisitorName":"Ny","VisitorType":"Kunde","VisitDate":"2025-06-05T18:26:00","Note":"Ny"}]

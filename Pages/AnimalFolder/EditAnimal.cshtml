@@ -59,6 +59,11 @@
         <input asp-for="ImageFile" type="file" class="form-control-file" />
         <span asp-validation-for="ImageFile" class="text-danger"></span>
     </div>
+    <div class="form-group">
+        <label asp-for="Animal.Picture">Billedfilnavn</label>
+        <input asp-for="Animal.Picture" class="form-control" />
+        <span asp-validation-for="Animal.Picture" class="text-danger"></span>
+    </div>
 
     <button type="submit" class="btn btn-success">Gem ændringer</button>
     <a asp-page="Animal" class="btn btn-secondary">Annuller</a>

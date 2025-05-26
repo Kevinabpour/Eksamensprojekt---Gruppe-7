@@ -1,8 +1,6 @@
 ﻿@page
 @model Eksamensprojekt___Gruppe_7.Pages.AnimalFolder.AnimalModel
-@{
-    ViewData["Title"] = "Alle dyr";
-}
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <h2>Her kan du se vores dyr</h2>
 
@@ -10,31 +8,74 @@
     @foreach (var animal in Model.Animals)
     {
         <div class="col-md-4 mb-4">
-            <div class="card">
-                <img src="/media/@animal.Picture" class="card-img-top" alt="Dyr billede" style="height: 300px; object-fit: cover;" />
+            <div class="card h-100">
+                @if (!string.IsNullOrEmpty(animal.Picture))
+                {
+                    <img src="~/media/@animal.Picture"
+                         class="card-img-top"
+                         alt="@animal.Name"
+                         style="height:300px;object-fit:cover;" />
+                }
                 <div class="card-body">
                     <h5 class="card-title">@animal.Name</h5>
-                    <p class="card-text">
-                        Fødselsdag: @animal.BirthDate <br/>
-                        Race: @animal.Race <br />
-                        Chipnummer: @animal.ChipNumber <br />
-                        Størrelse (cm): @animal.Size <br />
-                        Tilgængelig:
-                        @if (animal.Avaliability)
-                        {
-                            <span class="text-success">Ja</span>
-                        }
-                        else
-                        {
-                            <span class="text-danger">Nej</span>
-                        }
-                    </p>
-                    <a asp-page="EditAnimal" asp-route-id="@animal.Id" class="btn btn-sm btn-outline-primary">Rediger</a>
-                    <a asp-page="DeleteAnimal" asp-route-id="@animal.Id" class="btn btn-sm btn-outline-danger">Slet</a>
+
+                    <dl class="row">
+                        <dt class="col-5">Fødselsdato</dt>
+                        <dd class="col-7">@animal.BirthDate</dd>
+
+                        <dt class="col-5">Race</dt>
+                        <dd class="col-7">@animal.Race</dd>
+
+                        <dt class="col-5">Chip-nr.</dt>
+                        <dd class="col-7">@animal.ChipNumber</dd>
+
+                        <dt class="col-5">Størrelse</dt>
+                        <dd class="col-7">@animal.Size cm</dd>
+
+                        <dt class="col-5">Karakteristika</dt>
+                        <dd class="col-7">@animal.Characteristics</dd>
+
+                        <dt class="col-5">Tilgængelig</dt>
+                        <dd class="col-7">
+                            @if (animal.Avaliability)
+                            {
+                                <span class="text-success">Ja</span>
+                            }
+                            else
+                            {
+                                <span class="text-danger">Nej</span>
+                            }
+                        </dd>
+
+                        <dt class="col-5">Defekter</dt>
+                        <dd class="col-7">
+                            @if (animal.Defect != null && animal.Defect.Any())
+                            {
+                                <ul class="mb-0">
+                                    @foreach (var d in animal.Defect)
+                                    {
+                                        <li>@d</li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <span>Ingen</span>
+                            }
+                        </dd>
+                    </dl>
+                </div>
+                <div class="card-footer text-right">
+                    <a asp-page="./EditAnimal"
+                       asp-route-id="@animal.Id"
+                       class="btn btn-sm btn-outline-primary">Rediger</a>
+                    <a asp-page="./DeleteAnimal"
+                       asp-route-id="@animal.Id"
+                       class="btn btn-sm btn-outline-danger">Slet</a>
                 </div>
             </div>
         </div>
     }
 </div>
 
-<a asp-page="AddAnimal" class="btn btn-success mt-3">Tilføj nyt dyr</a>
+<a asp-page="./AddAnimal" class="btn btn-success mt-3">Tilføj nyt dyr</a>

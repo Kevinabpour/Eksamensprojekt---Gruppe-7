@@ -37,7 +37,7 @@ namespace Eksamensprojekt___Gruppe_7.Pages.AnimalFolder
             }
 
             _bookingRepo.Add(Booking);
-            return RedirectToPage("Animal");
+            return RedirectToPage("VisitLog");
         }
     }
 }

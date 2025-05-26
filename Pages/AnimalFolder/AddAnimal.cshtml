@@ -12,6 +12,7 @@
     <div class="form-group form-check">
         <input asp-for="Animal.Avaliability" class="form-check-input" />
         <label asp-for="Animal.Avaliability" class="form-check-label">Tilgængelig</label>
+        <span asp-validation-for="Animal.Avaliability" class="text-danger"></span>
     </div>
 
     <div class="form-group">
@@ -21,10 +22,11 @@
     </div>
 
     <div class="form-group">
-    <label asp-for="Animal.BirthDate">Fødselsdato</label>
-    <input asp-for="Animal.BirthDate" type="date" class="form-control" />
+        <label asp-for="Animal.BirthDate">Fødselsdato</label>
+        <input asp-for="Animal.BirthDate" type="date" class="form-control" />
+        <span asp-validation-for="Animal.BirthDate" class="text-danger"></span>
     </div>
-    
+
     <div class="form-group">
         <label asp-for="Animal.Race">Race</label>
         <input asp-for="Animal.Race" class="form-control" />
@@ -44,11 +46,31 @@
     </div>
 
     <div class="form-group">
-        <label asp-for="ImageFile">Billede</label>
+        <label asp-for="Animal.Characteristics">Karakteristika</label>
+        <textarea asp-for="Animal.Characteristics" class="form-control"></textarea>
+        <span asp-validation-for="Animal.Characteristics" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Billede (filupload)</label>
         <input asp-for="ImageFile" type="file" class="form-control-file" />
         <span asp-validation-for="ImageFile" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-success">Gem</button>
+    <div class="form-group">
+        <label asp-for="Animal.Picture">Billedfilnavn</label>
+        <input asp-for="Animal.Picture" class="form-control" />
+        <span asp-validation-for="Animal.Picture" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Defekter (én per linje)</label>
+        <input name="Animal.Defect[0]" class="form-control mb-1" placeholder="Defekt 1" />
+        <input name="Animal.Defect[1]" class="form-control mb-1" placeholder="Defekt 2" />
+        <input name="Animal.Defect[2]" class="form-control" placeholder="Defekt 3" />
+        <span asp-validation-for="Animal.Defect" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Gem</button>
     <a asp-page="Animal" class="btn btn-secondary">Annuller</a>
 </form>
