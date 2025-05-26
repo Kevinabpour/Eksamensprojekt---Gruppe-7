@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.12.35728.132
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eksamensprojekt - Gruppe 7", "Eksamensprojekt - Gruppe 7.csproj", "{AB561938-4085-4B84-B0B0-61329FB3B241}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1CB601A8-A278-051D-6CE1-3435F02158F3} = {1CB601A8-A278-051D-6CE1-3435F02158F3}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Eksamensgruppe 7 - ClassLibrary", "..\Eksamensgruppe-7---ClassLibrary\Eksamensgruppe 7 - ClassLibrary.csproj", "{1CB601A8-A278-051D-6CE1-3435F02158F3}"
 EndProject
