@@ -10,17 +10,5 @@
     "Picture": "26ba7a2f-7759-4987-bf10-174fe44c7bfb.png",
     "Avaliability": false,
     "Defect": []
-  },
-  {
-    "Id": 5,
-    "Name": "Trofast",
-    "BirthDate": "0001-01-01T00:00:00",
-    "Size": 13,
-    "ChipNumber": "54321",
-    "Race": "Maine Coon",
-    "Characteristics": "",
-    "Picture": "f1571678-423f-4b74-87f4-d0ede19e2d78.png",
-    "Avaliability": false,
-    "Defect": []
   }
 ]
