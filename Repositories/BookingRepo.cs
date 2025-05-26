@@ -1,41 +1,47 @@
-﻿using Eksamensprojekt___Gruppe_7.Models;
+﻿// Repositories/BookingRepo.cs
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text.Json;
-
-
+using Eksamensprojekt___Gruppe_7.Models;
 
 namespace Eksamensprojekt___Gruppe_7.Repositories
 {
+    // Loads and save of booking data to Data JSON file.
     public class BookingRepo
     {
-        private const string FileName = "bookings.json";
-        private readonly string _path;
+        // Path to Data/bookings.json
+        private readonly string _path = Path.Combine(
+            Directory.GetCurrentDirectory(), "Data", "bookings.json"
+        );
+
+        // Bookings loaded from that file
         private List<Booking> _bookings;
 
         public BookingRepo()
         {
-            _path = Path.Combine(Directory.GetCurrentDirectory(), "Data", FileName);
-            if (!File.Exists(_path))
-            {
-                Directory.CreateDirectory(Path.GetDirectoryName(_path));
-                File.WriteAllText(_path, "[]");
-            }
+            // Ensure the Data folder exists
+            Directory.CreateDirectory(Path.GetDirectoryName(_path)!);
 
+            // If it doesn't exist, create a new one
+            if (!File.Exists(_path))
+                File.WriteAllText(_path, "[]");
+
+            // Read the JSON text and deserialize into the list
             var json = File.ReadAllText(_path);
-            _bookings = JsonSerializer.Deserialize<List<Booking>>(json) ?? new List<Booking>();
+            _bookings = JsonSerializer.Deserialize<List<Booking>>(json)
+                        ?? new List<Booking>();
         }
 
         private void SaveChanges()
         {
-            var options = new JsonSerializerOptions { WriteIndented = true };
-            var json = JsonSerializer.Serialize(_bookings, options);
-            File.WriteAllText(_path, json);
+            // Serialize
+            File.WriteAllText(_path, JsonSerializer.Serialize(_bookings));
         }
 
+        // Returns all bookings in memory
         public List<Booking> GetAll() => _bookings;
 
+        // Adds a new booking to the list and saves
         public void Add(Booking booking)
         {
             _bookings.Add(booking);
