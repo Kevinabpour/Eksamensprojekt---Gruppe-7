@@ -10,11 +10,12 @@
     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
     <input type="hidden" asp-for="Animal.Id" />
-    <input type="hidden" asp-for="ExistingPicture" />
+    <input type="hidden" asp-for="Animal.Picture" />
 
     <div class="form-group form-check">
         <input asp-for="Animal.Avaliability" class="form-check-input" />
         <label asp-for="Animal.Avaliability" class="form-check-label">Tilgængelig</label>
+        <span asp-validation-for="Animal.Avaliability" class="text-danger"></span>
     </div>
 
     <div class="form-group">
@@ -26,6 +27,7 @@
     <div class="form-group">
         <label asp-for="Animal.BirthDate">Fødselsdato</label>
         <input asp-for="Animal.BirthDate" type="date" class="form-control" />
+        <span asp-validation-for="Animal.BirthDate" class="text-danger"></span>
     </div>
 
     <div class="form-group">
@@ -47,24 +49,44 @@
     </div>
 
     <div class="form-group">
+        <label asp-for="Animal.Characteristics">Karakteristika</label>
+        <textarea asp-for="Animal.Characteristics" class="form-control"></textarea>
+        <span asp-validation-for="Animal.Characteristics" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
         <label>Nuværende billede</label><br />
-        @if (!string.IsNullOrEmpty(Model.ExistingPicture))
+        @if (!string.IsNullOrEmpty(Model.Animal.Picture))
         {
-            <img src="/Media/@Model.ExistingPicture" width="150" style="margin-bottom:10px;" />
+            <img src="/Media/@Model.Animal.Picture" width="150" style="margin-bottom:10px;" />
         }
     </div>
 
     <div class="form-group">
-        <label asp-for="ImageFile">Upload nyt billede</label>
+        <label>Billede (filupload)</label>
         <input asp-for="ImageFile" type="file" class="form-control-file" />
         <span asp-validation-for="ImageFile" class="text-danger"></span>
     </div>
+
     <div class="form-group">
         <label asp-for="Animal.Picture">Billedfilnavn</label>
         <input asp-for="Animal.Picture" class="form-control" />
         <span asp-validation-for="Animal.Picture" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-success">Gem ændringer</button>
+    <div class="form-group">
+        <label>Defekter (én per linje)</label>
+        @for (int i = 0; i < Model.Animal.Defect.Count; i++)
+        {
+            <input name="Animal.Defect[@i]" value="@Model.Animal.Defect[i]" class="form-control mb-1" />
+        }
+        @for (int i = Model.Animal.Defect.Count; i < 3; i++)
+        {
+            <input name="Animal.Defect[@i]" class="form-control mb-1" placeholder="Defekt @(i+1)" />
+        }
+        <span asp-validation-for="Animal.Defect" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Gem ændringer</button>
     <a asp-page="Animal" class="btn btn-secondary">Annuller</a>
 </form>

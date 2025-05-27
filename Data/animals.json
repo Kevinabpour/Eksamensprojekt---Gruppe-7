@@ -1,38 +1,50 @@
 [
-    {
-        "Id": 1,
-        "Name": "Bella",
-        "BirthDate": "2022-04-15T00:00:00",
-        "Size": 45,
-        "ChipNumber": "SN123456789",
-        "Race": "Golden Retriever",
-        "Characteristics": "Friendly, energetic, loves fetch",
-        "Picture": "Dyr1 (Trofast).png",
-        "Avaliability": true,
-        "Defect": [ "Brækket ben" ]
-    },
-    {
-        "Id": 2,
-        "Name": "Milo",
-        "BirthDate": "2020-11-03T00:00:00",
-        "Size": 25,
-        "ChipNumber": "SN987654321",
-        "Race": "Beagle",
-        "Characteristics": "Curious, food-motivated, good with kids",
-        "Picture": "Dyr1 (Trofast).png",
-        "Avaliability": false,
-        "Defect": [ "Brækket ben, behøver vaccine" ]
-    },
-    {
-        "Id": 3,
-        "Name": "Luna",
-        "BirthDate": "2021-07-22T00:00:00",
-        "Size": 30,
-        "ChipNumber": "SN564738291",
-        "Race": "French Bulldog",
-        "Characteristics": "Calm, loves naps, apartment-friendly",
-        "Picture": "Dyr1 (Trofast).png",
-        "Avaliability": true,
-        "Defect": [ "Bendelorm" ]
-    }
+  {
+    "Id": 1,
+    "Name": "Bellam",
+    "BirthDate": "2022-04-15T00:00:00",
+    "Size": 45,
+    "ChipNumber": "SN123456789",
+    "Race": "Golden Retriever",
+    "Characteristics": "Venlig, lys pels",
+    "Picture": "Dyr1 (Trofast).png",
+    "Avaliability": true,
+    "Defect": [
+      "Br\u00E6kket ben",
+      "S\u00E5r fra bid i h\u00F8jre \u00F8re",
+      null
+    ]
+  },
+  {
+    "Id": 2,
+    "Name": "Milo",
+    "BirthDate": "2020-11-03T00:00:00",
+    "Size": 25,
+    "ChipNumber": "SN987654321",
+    "Race": "Perserkat",
+    "Characteristics": "Sky, bl\u00E5 \u00F8jne",
+    "Picture": "Dyr1 (Trofast).png",
+    "Avaliability": false,
+    "Defect": [
+      "Br\u00E6kket ben, beh\u00F8ver vaccine",
+      null,
+      null
+    ]
+  },
+  {
+    "Id": 3,
+    "Name": "Luna",
+    "BirthDate": "2021-07-22T00:00:00",
+    "Size": 30,
+    "ChipNumber": "SN564738291",
+    "Race": "Bulldog",
+    "Characteristics": "Tam, stor",
+    "Picture": "Dyr1 (Trofast).png",
+    "Avaliability": true,
+    "Defect": [
+      "Bendelorm",
+      null,
+      null
+    ]
+  }
 ]

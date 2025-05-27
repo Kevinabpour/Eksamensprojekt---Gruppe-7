@@ -29,30 +29,44 @@ namespace Eksamensprojekt___Gruppe_7.Pages.AnimalFolder
             return Page();
         }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
-            // Debug: confirm handler runs and model is bound
-            Console.WriteLine($"[EditAnimal] OnPost: Id={Animal.Id}, Name={Animal.Name}, Avaliability={Animal.Avaliability}");
-
-            if (!ModelState.IsValid)
-                return Page();
-
+            // Check if the user uploaded a new image
             if (ImageFile != null)
             {
-                var fileName = $"{Guid.NewGuid()}{Path.GetExtension(ImageFile.FileName)}";
-                var mediaPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Media", fileName);
-                Directory.CreateDirectory(Path.GetDirectoryName(mediaPath));
-                using var fs = new FileStream(mediaPath, FileMode.Create);
-                ImageFile.CopyTo(fs);
+                // Give the image a unique name
+                string fileExtension = Path.GetExtension(ImageFile.FileName);
+                string fileName = Guid.NewGuid().ToString() + fileExtension;
+
+                // Build path to wwwroot/media folder
+                string mediaFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "media");
+                string fullPath = Path.Combine(mediaFolder, fileName);
+
+                // Make sure the media folder exists
+                if (!Directory.Exists(mediaFolder))
+                {
+                    Directory.CreateDirectory(mediaFolder);
+                }
+
+                // Save the uploaded file to the media folder
+                using (var fileStream = new FileStream(fullPath, FileMode.Create))
+                {
+                    await ImageFile.CopyToAsync(fileStream);
+                }
+
+                // Set the Picture property to filename
                 Animal.Picture = fileName;
             }
             else
             {
-                Animal.Picture = ExistingPicture;
+                // No new file uploaded = keep the old picture
             }
 
+            // Save the updated animal
             _service.UpdateAnimal(Animal);
-            return RedirectToPage("Animal");
+
+            // Go back to the animal list
+            return RedirectToPage("./Animal");
         }
     }
 }
