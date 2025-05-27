@@ -30,14 +30,9 @@ namespace Eksamensprojekt___Gruppe_7.Pages.Events
             return Page();
         }
 
-        // POST: adds the participant and saves
+        // Adds the participant and saves
         public IActionResult OnPost()
         {
-            // If any validation fails this redisplays the form
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
 
             // Retrieves the event, adds new participant, and save
             var ev = _repo.GetById(Event.Id);
